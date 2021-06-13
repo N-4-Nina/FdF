@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: abouchau <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/02/05 16:42:52 by abouchau          #+#    #+#              #
+#    Updated: 2020/10/05 13:17:02 by chpl             ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = FdF
 LIBFT = libft
 OS	= $(shell uname)
@@ -7,7 +19,7 @@ CC = clang
 CFLAGS	= -O3 -Wall -Wextra -Werror
 LIBS	= -L libft/ -lft ${MLX_LNK} -lm
 GNLBUFF = -D BUFFER_SIZE=100
-SOURCES =  srcs/FdF.c 
+SOURCES =  srcs/FdF.c
 
 OBJS	= ${SOURCES:.c=.o}
 
@@ -15,12 +27,10 @@ ifeq ($(OS), Linux)
 	MLX_DIR	= linux/minilibx-linux/
 	MLX_LNK	= -L ${MLX_DIR} -lmlx -lXext -lX11 -lbsd
 	SOURCES += linux/get_next_line.c
-	INCLUDES += -I linux/
 else
-	MLX_DIR	= osx/minilibx
+	MLX_DIR	= osx/minilibx_opengl
 	MLX_LNK	= -L ${MLX_DIR} -lmlx -framework OpenGL -framework AppKit
 	SOURCES += osx/get_next_line.c
-	INCLUDES += -I osx/
 endif
 
 .c.o:

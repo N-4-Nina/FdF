@@ -89,8 +89,8 @@ int	init(int argc, char **argv, t_fdf *f)
 	if (argc != 2)
 		return (-1);
 	f->mlx = mlx_init();
-	f->win = mlx_new_window(f->mlx, 50, 50, "FdF");
-	//mlx_get_screen_size(f->width, f->height);
+	mlx_get_screen_size(f->mlx, &f->width, &f->height);
+	f->win = mlx_new_window(f->mlx, f->width, f->height, "FdF");
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 		return (-1);

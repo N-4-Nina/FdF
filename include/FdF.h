@@ -17,7 +17,8 @@
 #include <fcntl.h>
 #include "point.h"
 #include "../libft/libft.h"
-#include "../osx/minilibx/mlx.h"
+#include "../linux/minilibx-linux/mlx.h"
+
 #include "../osx/osx.h"
 
 typedef	struct s_cam
