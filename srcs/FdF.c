@@ -16,13 +16,17 @@ int	parse_line(char *line, int h, t_fdf *f)
 {
 	char **split;
 	int	i;
+	static	int	lineNb = 0;
 
 	i = 0;
 	split = ft_split(line, 32);
 	while (split[i])
-	{
-		f->vertices[]
-	}
+		i++;
+	
+	f->vertices = malloc(sizeof(t_point) * i * h);
+	i = 0;
+	while(split[i])
+		f->vertices[lineNb];
 
 }
 
