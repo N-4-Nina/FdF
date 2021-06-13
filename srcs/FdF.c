@@ -6,13 +6,14 @@
 /*   By: abouchau <abouchau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 12:00:17 by abouchau          #+#    #+#             */
-/*   Updated: 2021/06/11 13:50:28 by abouchau         ###   ########.fr       */
+/*   Updated: 2021/06/13 12:24:25 by abouchau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/FdF.h"
+#include <stdio.h>
 
-int	parse_line(char *line, int h, t_fdf *f)
+int	parse_line(char *line, t_fdf *f)
 {
 	char **split;
 	int	i;
@@ -20,19 +21,29 @@ int	parse_line(char *line, int h, t_fdf *f)
 
 	i = 0;
 	split = ft_split(line, 32);
-	while (split[i])
-		i++;
+	if (!lineNb)
+	{
+		while (split[i])
+			i++;
+		f->m->width = i;
+		f->m->vert = malloc(sizeof(t_point) * i * f->m->height);
+		i = 0;
+	}
 	
-	f->vertices = malloc(sizeof(t_point) * i * h);
-	i = 0;
 	while(split[i])
-		f->vertices[lineNb];
-
+	{
+		f->m->vert[i+(lineNb*f->m->width)] = (t_point){ i, lineNb, ft_atoi(split[i])};
+		i++;
+	}
+	free(split);
+	lineNb++;
+	return (lineNb);
 }
 
 int	get_height(int *fd, t_fdf *f)
 {
 	int	height;
+	char	*line;
 	
 	height = 0;
 	while (get_next_line(*fd, &line))
@@ -41,24 +52,34 @@ int	get_height(int *fd, t_fdf *f)
 		free(line);
 	}
 	free(line);
-	close(fd);
+	close(*fd);
 	*fd = open(f->filename, O_RDONLY);
 	return (height);
 }
 
-int	parse_file(int fd)
+int	abort_parse(char *line, int fd, t_fdf *f)
 {
-	char *line;
-	int	height;
+	int	i;
 
-	height = get_height(&fd);
-	
+	i = 0;
+	free(line);
+	close(fd);
+	free(f->m->vert);
+	return (-1);
+}
+
+int	parse_file(int fd, t_fdf *f)
+{
+	char	*line;
+
+	f->m->height = get_height(&fd, f);
 	while (get_next_line(fd, &line))
 	{
-		if (!parse_line(line))
-			return(abort_parse(line, fd));
+		if (!parse_line(line, f))
+			return(abort_parse(line, fd, f));
 		free(line);
 	}
+	return (0);
 }
 
 int	init(int argc, char **argv, t_fdf *f)
@@ -67,6 +88,9 @@ int	init(int argc, char **argv, t_fdf *f)
 
 	if (argc != 2)
 		return (-1);
+	f->mlx = mlx_init();
+	f->win = mlx_new_window(f->mlx, 50, 50, "FdF");
+	//mlx_get_screen_size(f->width, f->height);
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 		return (-1);
@@ -74,10 +98,21 @@ int	init(int argc, char **argv, t_fdf *f)
 	return (parse_file(fd, f));
 }
 
+int	alloc(t_fdf *f)
+{
+	f->c = malloc(sizeof(t_cam));
+	f->m = malloc(sizeof(t_mesh));
+	return (0);
+}
+
 int	main(int argc, char **argv)
 {
 	t_fdf	fdf;
-	if (argc != 2)
+	
+	alloc(&fdf);
+	if (init(argc, argv, &fdf))
 		return (-1);
-	init(argc, argv, &fdf);
+	printf("%d%d\n", WIDTH, HEIGHT);
+	while (1)
+		NULL;
 }

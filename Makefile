@@ -15,10 +15,12 @@ ifeq ($(OS), Linux)
 	MLX_DIR	= linux/minilibx-linux/
 	MLX_LNK	= -L ${MLX_DIR} -lmlx -lXext -lX11 -lbsd
 	SOURCES += linux/get_next_line.c
+	INCLUDES += -I linux/
 else
-	MLX_DIR	= osx/minilibx_opengl
+	MLX_DIR	= osx/minilibx
 	MLX_LNK	= -L ${MLX_DIR} -lmlx -framework OpenGL -framework AppKit
 	SOURCES += osx/get_next_line.c
+	INCLUDES += -I osx/
 endif
 
 .c.o:

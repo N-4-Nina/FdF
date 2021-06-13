@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   point.h                                            :+:      :+:    :+:   */
+/*   linux.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abouchau <abouchau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/11 12:14:44 by abouchau          #+#    #+#             */
-/*   Updated: 2021/06/13 10:19:06 by abouchau         ###   ########.fr       */
+/*   Created: 2021/06/13 12:04:44 by abouchau          #+#    #+#             */
+/*   Updated: 2021/06/13 12:05:59 by abouchau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef POINT_H
-# define POINT_H
+#ifndef LINUX_H
+# define LINUX_H
 
-typedef	struct	s_point
-{
-	int	x;
-	int	y;
-	int	z;
-}				t_point;
+# define WIDTH 0
+# define HEIGHT 0
 
 #endif
