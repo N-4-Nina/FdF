@@ -39,7 +39,7 @@ typedef	struct	s_fdf
 	void	*mlx;
 	void	*win;
 	void	*img;
-	int	*data;
+	unsigned	int	*data;
 	int		bpp;
 	int		size_line;
 	int		endian;

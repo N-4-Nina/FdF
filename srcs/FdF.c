@@ -99,6 +99,8 @@ int	init(int argc, char **argv, t_fdf *f)
 		return (-1);
 	f->mlx = mlx_init();
 	mlx_get_screen_size(f->mlx, &f->width, &f->height);
+	f->width /= 1.25;
+	f->height /= 1.25;
 	f->win = mlx_new_window(f->mlx, f->width, f->height, "FdF");
 	f->filename = argv[1];
 	f->m->size = f->m->width * f->m->height;
@@ -148,7 +150,7 @@ int	main(int argc, char **argv)
 					fdf.m->height / fdf.m->height / 2);
 	printf("%d  %d\n", fdf.width, fdf.height);
 	fdf.img = mlx_new_image(fdf.mlx, fdf.width, fdf.height);
-	fdf.data = (int *)mlx_get_data_addr(fdf.img, &fdf.bpp, &fdf.size_line, &fdf.endian);
+	fdf.data = (unsigned int *)mlx_get_data_addr(fdf.img, &fdf.bpp, &fdf.size_line, &fdf.endian);
 	draw_mesh(&fdf);
 	mlx_put_image_to_window(fdf.mlx, fdf.win, fdf.img, 0, 0);
 	while (1)
