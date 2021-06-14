@@ -23,13 +23,14 @@
 
 typedef	struct s_cam
 {
-	int	dist;
+	float	dist;
 }				t_cam;
 
 typedef	struct s_mesh
 {
 	int	width;
 	int	height;
+	int	size;
 	t_point	*vert;
 }				t_mesh;
 
@@ -37,8 +38,14 @@ typedef	struct	s_fdf
 {
 	void	*mlx;
 	void	*win;
+	void	*img;
+	int	*data;
+	int		bpp;
+	int		size_line;
+	int		endian;
 	int		width;
 	int		height;
+	int		run;
 	t_mesh	*m;
 	t_cam	*c;
 	char 	*filename;
@@ -47,5 +54,7 @@ typedef	struct	s_fdf
 
 
 int	get_next_line(int fd, char **line);
+float min(float val1, float val2);
+int draw_mesh(t_fdf *f);
 
 #endif

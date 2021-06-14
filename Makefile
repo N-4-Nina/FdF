@@ -19,7 +19,9 @@ CC = clang
 CFLAGS	= -O3 -Wall -Wextra -Werror
 LIBS	= -L libft/ -lft ${MLX_LNK} -lm
 GNLBUFF = -D BUFFER_SIZE=100
-SOURCES =  srcs/FdF.c
+SOURCES =  srcs/FdF.c \
+			srcs/utils.c \
+			srcs/draw_mesh.c
 
 OBJS	= ${SOURCES:.c=.o}
 
