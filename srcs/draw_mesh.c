@@ -8,12 +8,12 @@ void    draw_pixel(t_fdf *f, int x, int y, int color)
 	if (x >= 0 && x < f->width && y >= 0 && y < f->height)
 	{
 
-		i = (y/4 * f->size_line + x/4 * (f->bpp / 8));;
+		i = (y * f->size_line + x * (f->bpp / 8));
 		// printf("%d  %d\n", x, y);
-		ft_memcpy(f->data + i, &color, sizeof(unsigned int));
-		// f->data[i] = color;
-		// f->data[++i] = color >> 8;
-		// f->data[++i] = color >> 16;
+		// ft_memcpy(f->data + i, &color, sizeof(unsigned int));
+		f->data[i] = color;
+		f->data[++i] = color >> 8;
+		f->data[++i] = color >> 16;
 	}
 }
 
@@ -80,7 +80,7 @@ int draw_mesh(t_fdf *f)
 
     i = 0;
 	//printf("%d, %d \n", f->width/2, f->height/2);
-	draw_line(0, 0, f->width, f->height, f);
+	//draw_line(0, 0, f->width, f->height, f);
     while (i < f->m->size)
     {
         if (f->m->vert[i].x + 1 < f->m->width)
