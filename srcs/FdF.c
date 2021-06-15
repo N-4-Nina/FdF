@@ -103,8 +103,13 @@ int	init(int argc, char **argv, t_fdf *f)
 	f->height /= 1.25;
 	f->win = mlx_new_window(f->mlx, f->width, f->height, "FdF");
 	f->filename = argv[1];
+	if (parse_file(f)< 0)
+		return (-1);
 	f->m->size = f->m->width * f->m->height;
-	return (parse_file(f));
+	f->c->dist = min(f->width / f->m->width / 2, f->height/ f->m->height /2);
+	f->img = mlx_new_image(f->mlx, f->width, f->height);
+	f->data = (char *)mlx_get_data_addr(f->img, &f->bpp, &f->size_line, &f->endian);
+	return (0);
 }
 
 int	alloc(t_fdf *f)
@@ -146,11 +151,8 @@ int	main(int argc, char **argv)
 	alloc(&fdf);
 	if (init(argc, argv, &fdf))
 		return (-1);
-	fdf.c->dist = min(fdf.m->width / fdf.m->width / 2,
-					fdf.m->height / fdf.m->height / 2);
-	printf("%d  %d\n", fdf.width, fdf.height);
-	fdf.img = mlx_new_image(fdf.mlx, fdf.width, fdf.height);
-	fdf.data = (unsigned int *)mlx_get_data_addr(fdf.img, &fdf.bpp, &fdf.size_line, &fdf.endian);
+	
+
 	draw_mesh(&fdf);
 	mlx_put_image_to_window(fdf.mlx, fdf.win, fdf.img, 0, 0);
 	while (1)

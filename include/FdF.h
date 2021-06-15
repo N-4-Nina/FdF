@@ -15,6 +15,7 @@
 
 #include <unistd.h>
 #include <fcntl.h>
+#include <math.h>
 #include "point.h"
 #include "../libft/libft.h"
 #include "../linux/minilibx-linux/mlx.h"
@@ -23,7 +24,8 @@
 
 typedef	struct s_cam
 {
-	float	dist;
+	t_point	offset;
+	int		scale;
 }				t_cam;
 
 typedef	struct s_mesh

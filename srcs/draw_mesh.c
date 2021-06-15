@@ -17,52 +17,71 @@ void    draw_pixel(t_fdf *f, int x, int y, int color)
 	}
 }
 
-void draw_line(int x0, int y0, int x1, int y1, t_fdf *f)
+void draw_line(t_point p0, t_point p1, t_fdf *f)
 { 
-	int dx = abs(x1-x0), sx = x0<x1 ? 1 : -1;
-	int dy = abs(y1-y0), sy = y0<y1 ? 1 : -1; 
+	int dx = abs(p1.x-p0.x), sx = p0.x<p1.x ? 1 : -1;
+	int dy = abs(p1.y-p0.y), sy = p0.y<p1.y ? 1 : -1; 
 	int err = (dx>dy ? dx : -dy)/2, e2;
  
-	while(1){
-    	draw_pixel(f, x0,y0, 16777215);
-    	if (x0==x1 && y0==y1) break;
+	while(1)
+	{
+    	draw_pixel(f, p0.x,p0.y, 16777215);
+    	if (p0.x==p1.x && p0.y==p1.y) break;
     	e2 = err;
-    	if (e2 >-dx) { err -= dy; x0 += sx; }
-    	if (e2 < dy) { err += dx; y0 += sy; }
+    	if (e2 >-dx) { err -= dy; p0.x += sx; }
+    	if (e2 < dy) { err += dx; p0.y += sy; }
   }
 }
-	// t_point	delta;
-	// t_point	sign;
-	// t_point	cur;
-	// int		error[2];
 
-	// delta.x = FT_ABS(s.x - f.x);
-	// delta.y = FT_ABS(s.y - f.y);
-	// sign.x = f.x < s.x ? 1 : -1;
-	// sign.y = f.y < s.y ? 1 : -1;
-	// error[0] = delta.x - delta.y;
-	// cur = f;
-	// while (cur.x != s.x || cur.y != s.y)
-	// {
-	// 	put_pixel(fdf, cur.x, cur.y, get_color(cur, f, s, delta));
-	// 	if ((error[1] = error[0] * 2) > -delta.y)
-	// 	{
-	// 		error[0] -= delta.y;
-	// 		cur.x += sign.x;
-	// 	}
-	// 	if (error[1] < delta.x)
-	// 	{
-	// 		error[0] += delta.x;
-	// 		cur.y += sign.y;
+void	rotate_x(t_point *p)
+{
+	t_point old;
 
+	old.y = p->y;
+	old.z = p->z;
+	p->y = old.y * cos(0.523599) + old.z * sin(0.523599);
+	p->z = -old.y*sin(0.523599) + old.z * cos(0.523599);
+}
+
+void	rotate_y(t_point *p) 
+{
+	t_point old;
+
+	old.x = p->x;
+	old.z = p->z;
+	p->x = old.x*cos(0.523599) + old.z * sin(0.523599);
+	p->z = -old.x*sin(0.523599) + old.z * cos(523599);
+}
+
+void	rotate_z(t_point *p)
+{
+	t_point old;
+
+	old.x = p->x;
+	old.y = p->y;
+	p->x = old.x*cos(0.523599) - old.y*sin(0.523599);
+	p->y = old.x*sin(0.523599) + old.y*cos(0.523599);
+}
+
+void	iso(t_point *p)
+{
+	t_point	old;
+
+	old.x = p->x;
+	old.y = p->y;
+
+	p->x = (old.x - old.y) * cos(0.523599);
+	p->y = -(p->z) + (old.x + old.y) * sin(0.523599);
+}
 
 t_point    project(t_point p, t_fdf *f)
 {
-    p.x *= f->c->dist;
-	p.y *= f->c->dist;
-	//p.z *= f->c->dist / f->c->z_divisor;
-	p.x -= (f->m->width * f->c->dist) / 2;
-	p.y -= (f->m->height * f->c->dist) / 2;
+    p.x *= f->c->scale;
+	p.y *= f->c->scale;
+	p.z *= f->c->scale / 2 ;
+	p.x += (f->m->width * f->c->scale)/4;
+	p.y += (f->m->height * f->c->scale)/4;
+
     return (p);
 }
 void    build_ridge(t_point one, t_point two, t_fdf *f)
@@ -71,7 +90,9 @@ void    build_ridge(t_point one, t_point two, t_fdf *f)
 
     p[0] = project(one, f);
     p[1] = project(two, f);
-    draw_line(p[0].x, p[0].y, p[1].x, p[1].y, f);
+	iso(&p[0]);
+	iso(&p[1]);
+    draw_line(p[0], p[1], f);
 }
 
 int draw_mesh(t_fdf *f)
@@ -81,6 +102,7 @@ int draw_mesh(t_fdf *f)
     i = 0;
 	//printf("%d, %d \n", f->width/2, f->height/2);
 	//draw_line(0, 0, f->width, f->height, f);
+
     while (i < f->m->size)
     {
         if (f->m->vert[i].x + 1 < f->m->width)
