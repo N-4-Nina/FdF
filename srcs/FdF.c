@@ -99,14 +99,14 @@ int	init(int argc, char **argv, t_fdf *f)
 		return (-1);
 	f->mlx = mlx_init();
 	mlx_get_screen_size(f->mlx, &f->width, &f->height);
-	f->width /= 1.25;
-	f->height /= 1.25;
+	// f->width /= 1.25;
+	// f->height /= 1.25;
 	f->win = mlx_new_window(f->mlx, f->width, f->height, "FdF");
 	f->filename = argv[1];
 	if (parse_file(f)< 0)
 		return (-1);
 	f->m->size = f->m->width * f->m->height;
-	f->c->dist = min(f->width / f->m->width / 2, f->height/ f->m->height /2);
+	f->c->scale = min(f->width / f->m->width / 2, f->height/ f->m->height /2);
 	f->img = mlx_new_image(f->mlx, f->width, f->height);
 	f->data = (char *)mlx_get_data_addr(f->img, &f->bpp, &f->size_line, &f->endian);
 	return (0);

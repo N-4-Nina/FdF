@@ -78,9 +78,9 @@ t_point    project(t_point p, t_fdf *f)
 {
     p.x *= f->c->scale;
 	p.y *= f->c->scale;
-	p.z *= f->c->scale / 2 ;
-	p.x += (f->m->width * f->c->scale)/4;
-	p.y += (f->m->height * f->c->scale)/4;
+	p.z *= f->c->scale / 4;
+	// p.x += (f->m->width * f->c->scale)/2.5;
+	// p.y += (f->m->height * f->c->scale)/2.5;
 
     return (p);
 }
