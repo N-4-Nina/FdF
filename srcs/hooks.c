@@ -1,0 +1,25 @@
+#include "../include/FdF.h"
+
+int	keyrelease(int keycode, void *param)
+{
+	t_fdf	*f;
+
+	f = (t_fdf*)param;
+	f->key[keycode] = 0;
+	return (keycode);
+}
+
+int	keypress(int keycode, void *param)
+{
+	t_fdf	*f;
+
+	f = (t_fdf*)param;
+	f->key[keycode] = 1;
+	if (keycode == LTURN)
+        f->c->rot[0] -= 0.0174533;
+    if (keycode == RTURN)
+        f->c->rot[0] += 0.0174533;
+	// if (keycode == ESCAPE)
+	// 	free_and_exit(f);
+	return (keycode);
+}

@@ -21,7 +21,11 @@ LIBS	= -L libft/ -lft ${MLX_LNK} -lm
 GNLBUFF = -D BUFFER_SIZE=100
 SOURCES =  srcs/FdF.c \
 			srcs/utils.c \
-			srcs/draw_mesh.c
+			srcs/draw_mesh.c \
+			srcs/gradient.c \
+			srcs/hooks.c \
+			srcs/loop.c \
+			srcs/update.c
 
 OBJS	= ${SOURCES:.c=.o}
 

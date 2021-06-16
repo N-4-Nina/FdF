@@ -15,8 +15,9 @@
 
 int	parse_line(char *line, t_fdf *f)
 {
-	char **split;
-	int	i;
+	char		**split;
+	int			i;
+	int			z;
 	static	int	lineNb = 0;
 
 	i = 0;
@@ -26,13 +27,25 @@ int	parse_line(char *line, t_fdf *f)
 		while (split[i])
 			i++;
 		f->m->width = i;
-		f->m->vert = malloc(sizeof(t_point) * i * f->m->height);
+		f->m->vert = malloc(sizeof(t_vert) + sizeof(t_point) * i * f->m->height);
 		i = 0;
 	}
 	
 	while(split[i])
 	{
-		f->m->vert[i+(lineNb*f->m->width)] = (t_point){ i, lineNb, ft_atoi(split[i])};
+		z = ft_atoi(split[i]);
+		if (z > f->m->top)
+		{
+			f->m->top = z;
+			f->m->zrange = z - abs(f->m->bottom);
+		}
+		else if (z < f->m->bottom)
+		{
+			f->m->bottom = z;
+			f->m->zrange = f->m->zrange - abs(z);
+		}
+		f->m->vert[i+(lineNb*f->m->width)].p = (t_point){ i, lineNb, z};
+		f->m->vert[i+(lineNb*f->m->width)].color = set_point_color(f->m->bottom, f->m->top, z);
 		i++;
 	}
 	free(split);
@@ -103,12 +116,14 @@ int	init(int argc, char **argv, t_fdf *f)
 	// f->height /= 1.25;
 	f->win = mlx_new_window(f->mlx, f->width, f->height, "FdF");
 	f->filename = argv[1];
+	f->run = 1;
+	f->c->rot[0] = 0;
+	f->c->rot[1] = 0;
+	f->c->rot[2] = 0;
 	if (parse_file(f)< 0)
 		return (-1);
 	f->m->size = f->m->width * f->m->height;
 	f->c->scale = min(f->width / f->m->width / 2, f->height/ f->m->height /2);
-	f->img = mlx_new_image(f->mlx, f->width, f->height);
-	f->data = (char *)mlx_get_data_addr(f->img, &f->bpp, &f->size_line, &f->endian);
 	return (0);
 }
 
@@ -124,25 +139,11 @@ void print_vert(t_fdf fdf)
 	int i = 0;
 	while (i < fdf.m->height*fdf.m->width)
 	{
-		printf("%d %d %d \n", fdf.m->vert[i].x, fdf.m->vert[i].y, fdf.m->vert[i].z);
+		printf("%d %d %d \n", fdf.m->vert[i].p.x, fdf.m->vert[i].p.y, fdf.m->vert[i].p.z);
 		i++;
 	}
 }
 
-// int	loop(t_fdf *f)
-// {
-// 	while (f->run)
-// 	{
-// 		// update();
-// 		f->img = mlx_new_image(f->mlx, f->width, f->height);
-// 		f->data = mlx_get_data_addr(f->img, &f->bpp, &f->size_line, &f->endian);
-// 		draw_mesh(f);
-// 		mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);
-// 		mlx_clear_window(f->mlx, f->win);
-// 		mlx_destroy_image(f->mlx, f->img);
-// 	}
-// 	return (0);
-// }
 
 int	main(int argc, char **argv)
 {
@@ -153,10 +154,10 @@ int	main(int argc, char **argv)
 		return (-1);
 	
 
-	draw_mesh(&fdf);
-	mlx_put_image_to_window(fdf.mlx, fdf.win, fdf.img, 0, 0);
-	while (1)
-		NULL;
-	// mlx_loop_hook(fdf.mlx, &loop, &fdf);
-	// mlx_loop(fdf.mlx);
+	mlx_hook(fdf.win, 2, (1L << 0), keypress, &fdf);
+	mlx_hook(fdf.win, 3, (1L << 1), keyrelease, &fdf);
+	
+
+	mlx_loop_hook(fdf.mlx, &loop, &fdf);
+	mlx_loop(fdf.mlx);
 }
