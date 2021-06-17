@@ -24,11 +24,19 @@
 
 #include "../osx/osx.h"
 
+enum	rotMode
+{
+	ROT_X,
+	ROT_Y,
+	ROT_Z,
+	ROT_ALL
+};
 typedef	struct s_cam
 {
 	t_point	offset;
 	int		scale;
 	double	rot[3];
+	int		rotMode;
 }				t_cam;
 
 typedef	struct s_mesh
@@ -86,7 +94,8 @@ double  percent(int start, int end, int current);
 int	keyrelease(int keycode, void *param);
 int	keypress(int keycode, void *param);
 
-int    loop(void *param);
+int    loop_hook(void *param);
 void    update(t_fdf *f);
+int		free_and_exit(t_fdf *f);
 
 #endif

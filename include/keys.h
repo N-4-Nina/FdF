@@ -10,6 +10,14 @@
 #  define RIGHT 100
 #  define BACK 115
 #  define ESCAPE 65307
+#  define W_KEY 119
+#  define A_KEY 97
+#  define S_KEY 115
+#  define D_KEY 100
+#  define X_KEY 120
+#  define Y_KEY 121
+#  define Z_KEY 122
+#  define T_KEY 116
 
 # else
 #  define LTURN 123

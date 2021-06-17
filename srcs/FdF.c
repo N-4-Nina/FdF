@@ -112,8 +112,6 @@ int	init(int argc, char **argv, t_fdf *f)
 		return (-1);
 	f->mlx = mlx_init();
 	mlx_get_screen_size(f->mlx, &f->width, &f->height);
-	// f->width /= 1.25;
-	// f->height /= 1.25;
 	f->win = mlx_new_window(f->mlx, f->width, f->height, "FdF");
 	f->filename = argv[1];
 	f->run = 1;
@@ -154,10 +152,10 @@ int	main(int argc, char **argv)
 		return (-1);
 	
 
-	mlx_hook(fdf.win, 2, (1L << 0), keypress, &fdf);
-	mlx_hook(fdf.win, 3, (1L << 1), keyrelease, &fdf);
-	
+	mlx_hook(fdf.win, 33, (1 << 8), free_and_exit, &fdf);
 
-	mlx_loop_hook(fdf.mlx, &loop, &fdf);
+	mlx_loop_hook(fdf.mlx, loop_hook, &fdf);
+	mlx_hook(fdf.win, 02, (1L << 0), keypress, &fdf);
+	mlx_hook(fdf.win, 03, (1L << 1), keyrelease, &fdf);
 	mlx_loop(fdf.mlx);
 }

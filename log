@@ -1,0 +1,289 @@
+==12457== Memcheck, a memory error detector
+==12457== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==12457== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==12457== Command: ./FdF test_maps/pyra.fdf
+==12457== Parent PID: 6540
+==12457== 
+==12457== Conditional jump or move depends on uninitialised value(s)
+==12457==    at 0x4017DF: parse_line (in /home/user42/fdf/FdF)
+==12457==    by 0x4019BC: parse_file (in /home/user42/fdf/FdF)
+==12457==    by 0x401A88: init (in /home/user42/fdf/FdF)
+==12457==    by 0x401BF0: main (in /home/user42/fdf/FdF)
+==12457== 
+==12457== Conditional jump or move depends on uninitialised value(s)
+==12457==    at 0x401803: parse_line (in /home/user42/fdf/FdF)
+==12457==    by 0x4019BC: parse_file (in /home/user42/fdf/FdF)
+==12457==    by 0x401A88: init (in /home/user42/fdf/FdF)
+==12457==    by 0x401BF0: main (in /home/user42/fdf/FdF)
+==12457== 
+==12457== Conditional jump or move depends on uninitialised value(s)
+==12457==    at 0x402862: set_point_color (in /home/user42/fdf/FdF)
+==12457==    by 0x401848: parse_line (in /home/user42/fdf/FdF)
+==12457==    by 0x4019BC: parse_file (in /home/user42/fdf/FdF)
+==12457==    by 0x401A88: init (in /home/user42/fdf/FdF)
+==12457==    by 0x401BF0: main (in /home/user42/fdf/FdF)
+==12457== 
+==12457== Conditional jump or move depends on uninitialised value(s)
+==12457==    at 0x402887: set_point_color (in /home/user42/fdf/FdF)
+==12457==    by 0x401848: parse_line (in /home/user42/fdf/FdF)
+==12457==    by 0x4019BC: parse_file (in /home/user42/fdf/FdF)
+==12457==    by 0x401A88: init (in /home/user42/fdf/FdF)
+==12457==    by 0x401BF0: main (in /home/user42/fdf/FdF)
+==12457== 
+==12457== Conditional jump or move depends on uninitialised value(s)
+==12457==    at 0x40289E: set_point_color (in /home/user42/fdf/FdF)
+==12457==    by 0x401848: parse_line (in /home/user42/fdf/FdF)
+==12457==    by 0x4019BC: parse_file (in /home/user42/fdf/FdF)
+==12457==    by 0x401A88: init (in /home/user42/fdf/FdF)
+==12457==    by 0x401BF0: main (in /home/user42/fdf/FdF)
+==12457== 
+==12457== Conditional jump or move depends on uninitialised value(s)
+==12457==    at 0x4028B5: set_point_color (in /home/user42/fdf/FdF)
+==12457==    by 0x401848: parse_line (in /home/user42/fdf/FdF)
+==12457==    by 0x4019BC: parse_file (in /home/user42/fdf/FdF)
+==12457==    by 0x401A88: init (in /home/user42/fdf/FdF)
+==12457==    by 0x401BF0: main (in /home/user42/fdf/FdF)
+==12457== 
+==12457== Conditional jump or move depends on uninitialised value(s)
+==12457==    at 0x4028CC: set_point_color (in /home/user42/fdf/FdF)
+==12457==    by 0x401848: parse_line (in /home/user42/fdf/FdF)
+==12457==    by 0x4019BC: parse_file (in /home/user42/fdf/FdF)
+==12457==    by 0x401A88: init (in /home/user42/fdf/FdF)
+==12457==    by 0x401BF0: main (in /home/user42/fdf/FdF)
+==12457== 
+==12457== Conditional jump or move depends on uninitialised value(s)
+==12457==    at 0x4028DF: set_point_color (in /home/user42/fdf/FdF)
+==12457==    by 0x401848: parse_line (in /home/user42/fdf/FdF)
+==12457==    by 0x4019BC: parse_file (in /home/user42/fdf/FdF)
+==12457==    by 0x401A88: init (in /home/user42/fdf/FdF)
+==12457==    by 0x401BF0: main (in /home/user42/fdf/FdF)
+==12457== 
+==12457== Conditional jump or move depends on uninitialised value(s)
+==12457==    at 0x4028F2: set_point_color (in /home/user42/fdf/FdF)
+==12457==    by 0x401848: parse_line (in /home/user42/fdf/FdF)
+==12457==    by 0x4019BC: parse_file (in /home/user42/fdf/FdF)
+==12457==    by 0x401A88: init (in /home/user42/fdf/FdF)
+==12457==    by 0x401BF0: main (in /home/user42/fdf/FdF)
+==12457== 
+==12457== Conditional jump or move depends on uninitialised value(s)
+==12457==    at 0x402905: set_point_color (in /home/user42/fdf/FdF)
+==12457==    by 0x401848: parse_line (in /home/user42/fdf/FdF)
+==12457==    by 0x4019BC: parse_file (in /home/user42/fdf/FdF)
+==12457==    by 0x401A88: init (in /home/user42/fdf/FdF)
+==12457==    by 0x401BF0: main (in /home/user42/fdf/FdF)
+==12457== 
+==12457== Conditional jump or move depends on uninitialised value(s)
+==12457==    at 0x402918: set_point_color (in /home/user42/fdf/FdF)
+==12457==    by 0x401848: parse_line (in /home/user42/fdf/FdF)
+==12457==    by 0x4019BC: parse_file (in /home/user42/fdf/FdF)
+==12457==    by 0x401A88: init (in /home/user42/fdf/FdF)
+==12457==    by 0x401BF0: main (in /home/user42/fdf/FdF)
+==12457== 
+==12457== Invalid write of size 4
+==12457==    at 0x401831: parse_line (in /home/user42/fdf/FdF)
+==12457==    by 0x4019BC: parse_file (in /home/user42/fdf/FdF)
+==12457==    by 0x401A88: init (in /home/user42/fdf/FdF)
+==12457==    by 0x401BF0: main (in /home/user42/fdf/FdF)
+==12457==  Address 0x69a6020 is 0 bytes after a block of size 8,768 alloc'd
+==12457==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12457==    by 0x4017AF: parse_line (in /home/user42/fdf/FdF)
+==12457==    by 0x4019BC: parse_file (in /home/user42/fdf/FdF)
+==12457==    by 0x401A88: init (in /home/user42/fdf/FdF)
+==12457==    by 0x401BF0: main (in /home/user42/fdf/FdF)
+==12457== 
+==12457== Invalid write of size 4
+==12457==    at 0x401866: parse_line (in /home/user42/fdf/FdF)
+==12457==    by 0x4019BC: parse_file (in /home/user42/fdf/FdF)
+==12457==    by 0x401A88: init (in /home/user42/fdf/FdF)
+==12457==    by 0x401BF0: main (in /home/user42/fdf/FdF)
+==12457==  Address 0x69a6028 is 8 bytes after a block of size 8,768 alloc'd
+==12457==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12457==    by 0x4017AF: parse_line (in /home/user42/fdf/FdF)
+==12457==    by 0x4019BC: parse_file (in /home/user42/fdf/FdF)
+==12457==    by 0x401A88: init (in /home/user42/fdf/FdF)
+==12457==    by 0x401BF0: main (in /home/user42/fdf/FdF)
+==12457== 
+==12457== Invalid write of size 4
+==12457==    at 0x40182A: parse_line (in /home/user42/fdf/FdF)
+==12457==    by 0x4019BC: parse_file (in /home/user42/fdf/FdF)
+==12457==    by 0x401A88: init (in /home/user42/fdf/FdF)
+==12457==    by 0x401BF0: main (in /home/user42/fdf/FdF)
+==12457==  Address 0x69a602c is 12 bytes after a block of size 8,768 alloc'd
+==12457==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12457==    by 0x4017AF: parse_line (in /home/user42/fdf/FdF)
+==12457==    by 0x4019BC: parse_file (in /home/user42/fdf/FdF)
+==12457==    by 0x401A88: init (in /home/user42/fdf/FdF)
+==12457==    by 0x401BF0: main (in /home/user42/fdf/FdF)
+==12457== 
+==12457== Invalid write of size 4
+==12457==    at 0x40182D: parse_line (in /home/user42/fdf/FdF)
+==12457==    by 0x4019BC: parse_file (in /home/user42/fdf/FdF)
+==12457==    by 0x401A88: init (in /home/user42/fdf/FdF)
+==12457==    by 0x401BF0: main (in /home/user42/fdf/FdF)
+==12457==  Address 0x69a6030 is 16 bytes after a block of size 8,768 alloc'd
+==12457==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12457==    by 0x4017AF: parse_line (in /home/user42/fdf/FdF)
+==12457==    by 0x4019BC: parse_file (in /home/user42/fdf/FdF)
+==12457==    by 0x401A88: init (in /home/user42/fdf/FdF)
+==12457==    by 0x401BF0: main (in /home/user42/fdf/FdF)
+==12457== 
+==12457== Conditional jump or move depends on uninitialised value(s)
+==12457==    at 0x40294E: get_color (in /home/user42/fdf/FdF)
+==12457==    by 0x401DEF: draw_line (in /home/user42/fdf/FdF)
+==12457==    by 0x4026B9: build_ridge (in /home/user42/fdf/FdF)
+==12457==    by 0x4027DC: draw_mesh (in /home/user42/fdf/FdF)
+==12457==    by 0x402B75: loop_hook (in /home/user42/fdf/FdF)
+==12457==    by 0x403C8B: mlx_loop (in /home/user42/fdf/FdF)
+==12457==    by 0x401C7A: main (in /home/user42/fdf/FdF)
+==12457== 
+==12457== Conditional jump or move depends on uninitialised value(s)
+==12457==    at 0x40294E: get_color (in /home/user42/fdf/FdF)
+==12457==    by 0x401DEF: draw_line (in /home/user42/fdf/FdF)
+==12457==    by 0x4026B9: build_ridge (in /home/user42/fdf/FdF)
+==12457==    by 0x40276D: draw_mesh (in /home/user42/fdf/FdF)
+==12457==    by 0x402B75: loop_hook (in /home/user42/fdf/FdF)
+==12457==    by 0x403C8B: mlx_loop (in /home/user42/fdf/FdF)
+==12457==    by 0x401C7A: main (in /home/user42/fdf/FdF)
+==12457== 
+==12457== Invalid read of size 16
+==12457==    at 0x4027A1: draw_mesh (in /home/user42/fdf/FdF)
+==12457==    by 0x402B75: loop_hook (in /home/user42/fdf/FdF)
+==12457==    by 0x403C8B: mlx_loop (in /home/user42/fdf/FdF)
+==12457==    by 0x401C7A: main (in /home/user42/fdf/FdF)
+==12457==  Address 0x69a6018 is 8,760 bytes inside a block of size 8,768 alloc'd
+==12457==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12457==    by 0x4017AF: parse_line (in /home/user42/fdf/FdF)
+==12457==    by 0x4019BC: parse_file (in /home/user42/fdf/FdF)
+==12457==    by 0x401A88: init (in /home/user42/fdf/FdF)
+==12457==    by 0x401BF0: main (in /home/user42/fdf/FdF)
+==12457== 
+==12457== Invalid read of size 4
+==12457==    at 0x4027AA: draw_mesh (in /home/user42/fdf/FdF)
+==12457==    by 0x402B75: loop_hook (in /home/user42/fdf/FdF)
+==12457==    by 0x403C8B: mlx_loop (in /home/user42/fdf/FdF)
+==12457==    by 0x401C7A: main (in /home/user42/fdf/FdF)
+==12457==  Address 0x69a6028 is 8 bytes after a block of size 8,768 alloc'd
+==12457==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12457==    by 0x4017AF: parse_line (in /home/user42/fdf/FdF)
+==12457==    by 0x4019BC: parse_file (in /home/user42/fdf/FdF)
+==12457==    by 0x401A88: init (in /home/user42/fdf/FdF)
+==12457==    by 0x401BF0: main (in /home/user42/fdf/FdF)
+==12457== 
+==12457== Invalid read of size 16
+==12457==    at 0x402725: draw_mesh (in /home/user42/fdf/FdF)
+==12457==    by 0x402B75: loop_hook (in /home/user42/fdf/FdF)
+==12457==    by 0x403C8B: mlx_loop (in /home/user42/fdf/FdF)
+==12457==    by 0x401C7A: main (in /home/user42/fdf/FdF)
+==12457==  Address 0x69a6018 is 8,760 bytes inside a block of size 8,768 alloc'd
+==12457==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12457==    by 0x4017AF: parse_line (in /home/user42/fdf/FdF)
+==12457==    by 0x4019BC: parse_file (in /home/user42/fdf/FdF)
+==12457==    by 0x401A88: init (in /home/user42/fdf/FdF)
+==12457==    by 0x401BF0: main (in /home/user42/fdf/FdF)
+==12457== 
+==12457== Invalid read of size 4
+==12457==    at 0x40272F: draw_mesh (in /home/user42/fdf/FdF)
+==12457==    by 0x402B75: loop_hook (in /home/user42/fdf/FdF)
+==12457==    by 0x403C8B: mlx_loop (in /home/user42/fdf/FdF)
+==12457==    by 0x401C7A: main (in /home/user42/fdf/FdF)
+==12457==  Address 0x69a6028 is 8 bytes after a block of size 8,768 alloc'd
+==12457==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12457==    by 0x4017AF: parse_line (in /home/user42/fdf/FdF)
+==12457==    by 0x4019BC: parse_file (in /home/user42/fdf/FdF)
+==12457==    by 0x401A88: init (in /home/user42/fdf/FdF)
+==12457==    by 0x401BF0: main (in /home/user42/fdf/FdF)
+==12457== 
+==12457== Invalid read of size 4
+==12457==    at 0x40270E: draw_mesh (in /home/user42/fdf/FdF)
+==12457==    by 0x402B75: loop_hook (in /home/user42/fdf/FdF)
+==12457==    by 0x403C8B: mlx_loop (in /home/user42/fdf/FdF)
+==12457==    by 0x401C7A: main (in /home/user42/fdf/FdF)
+==12457==  Address 0x69a6028 is 8 bytes after a block of size 8,768 alloc'd
+==12457==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12457==    by 0x4017AF: parse_line (in /home/user42/fdf/FdF)
+==12457==    by 0x4019BC: parse_file (in /home/user42/fdf/FdF)
+==12457==    by 0x401A88: init (in /home/user42/fdf/FdF)
+==12457==    by 0x401BF0: main (in /home/user42/fdf/FdF)
+==12457== 
+==12457== Invalid read of size 16
+==12457==    at 0x402719: draw_mesh (in /home/user42/fdf/FdF)
+==12457==    by 0x402B75: loop_hook (in /home/user42/fdf/FdF)
+==12457==    by 0x403C8B: mlx_loop (in /home/user42/fdf/FdF)
+==12457==    by 0x401C7A: main (in /home/user42/fdf/FdF)
+==12457==  Address 0x69a6018 is 8,760 bytes inside a block of size 8,768 alloc'd
+==12457==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12457==    by 0x4017AF: parse_line (in /home/user42/fdf/FdF)
+==12457==    by 0x4019BC: parse_file (in /home/user42/fdf/FdF)
+==12457==    by 0x401A88: init (in /home/user42/fdf/FdF)
+==12457==    by 0x401BF0: main (in /home/user42/fdf/FdF)
+==12457== 
+==12457== Invalid read of size 4
+==12457==    at 0x40278A: draw_mesh (in /home/user42/fdf/FdF)
+==12457==    by 0x402B75: loop_hook (in /home/user42/fdf/FdF)
+==12457==    by 0x403C8B: mlx_loop (in /home/user42/fdf/FdF)
+==12457==    by 0x401C7A: main (in /home/user42/fdf/FdF)
+==12457==  Address 0x69a6028 is 8 bytes after a block of size 8,768 alloc'd
+==12457==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12457==    by 0x4017AF: parse_line (in /home/user42/fdf/FdF)
+==12457==    by 0x4019BC: parse_file (in /home/user42/fdf/FdF)
+==12457==    by 0x401A88: init (in /home/user42/fdf/FdF)
+==12457==    by 0x401BF0: main (in /home/user42/fdf/FdF)
+==12457== 
+==12457== Invalid read of size 16
+==12457==    at 0x402794: draw_mesh (in /home/user42/fdf/FdF)
+==12457==    by 0x402B75: loop_hook (in /home/user42/fdf/FdF)
+==12457==    by 0x403C8B: mlx_loop (in /home/user42/fdf/FdF)
+==12457==    by 0x401C7A: main (in /home/user42/fdf/FdF)
+==12457==  Address 0x69a6018 is 8,760 bytes inside a block of size 8,768 alloc'd
+==12457==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12457==    by 0x4017AF: parse_line (in /home/user42/fdf/FdF)
+==12457==    by 0x4019BC: parse_file (in /home/user42/fdf/FdF)
+==12457==    by 0x401A88: init (in /home/user42/fdf/FdF)
+==12457==    by 0x401BF0: main (in /home/user42/fdf/FdF)
+==12457== 
+==12457== Invalid read of size 4
+==12457==    at 0x402704: draw_mesh (in /home/user42/fdf/FdF)
+==12457==    by 0x402B75: loop_hook (in /home/user42/fdf/FdF)
+==12457==    by 0x403C8B: mlx_loop (in /home/user42/fdf/FdF)
+==12457==    by 0x401C7A: main (in /home/user42/fdf/FdF)
+==12457==  Address 0x69a602c is 12 bytes after a block of size 8,768 alloc'd
+==12457==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12457==    by 0x4017AF: parse_line (in /home/user42/fdf/FdF)
+==12457==    by 0x4019BC: parse_file (in /home/user42/fdf/FdF)
+==12457==    by 0x401A88: init (in /home/user42/fdf/FdF)
+==12457==    by 0x401BF0: main (in /home/user42/fdf/FdF)
+==12457== 
+==12457== Invalid read of size 4
+==12457==    at 0x402779: draw_mesh (in /home/user42/fdf/FdF)
+==12457==    by 0x402B75: loop_hook (in /home/user42/fdf/FdF)
+==12457==    by 0x403C8B: mlx_loop (in /home/user42/fdf/FdF)
+==12457==    by 0x401C7A: main (in /home/user42/fdf/FdF)
+==12457==  Address 0x69a6030 is 16 bytes after a block of size 8,768 alloc'd
+==12457==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12457==    by 0x4017AF: parse_line (in /home/user42/fdf/FdF)
+==12457==    by 0x4019BC: parse_file (in /home/user42/fdf/FdF)
+==12457==    by 0x401A88: init (in /home/user42/fdf/FdF)
+==12457==    by 0x401BF0: main (in /home/user42/fdf/FdF)
+==12457== 
+==12457== Conditional jump or move depends on uninitialised value(s)
+==12457==    at 0x402783: draw_mesh (in /home/user42/fdf/FdF)
+==12457==    by 0x402B75: loop_hook (in /home/user42/fdf/FdF)
+==12457==    by 0x403C8B: mlx_loop (in /home/user42/fdf/FdF)
+==12457==    by 0x401C7A: main (in /home/user42/fdf/FdF)
+==12457== 
+==12457== 
+==12457== HEAP SUMMARY:
+==12457==     in use at exit: 86,347 bytes in 833 blocks
+==12457==   total heap usage: 1,691 allocs, 858 frees, 160,913 bytes allocated
+==12457== 
+==12457== LEAK SUMMARY:
+==12457==    definitely lost: 1,876 bytes in 730 blocks
+==12457==    indirectly lost: 0 bytes in 0 blocks
+==12457==      possibly lost: 0 bytes in 0 blocks
+==12457==    still reachable: 84,471 bytes in 103 blocks
+==12457==         suppressed: 0 bytes in 0 blocks
+==12457== Rerun with --leak-check=full to see details of leaked memory
+==12457== 
+==12457== For counts of detected and suppressed errors, rerun with: -v
+==12457== Use --track-origins=yes to see where uninitialised values come from
+==12457== ERROR SUMMARY: 122842 errors from 28 contexts (suppressed: 44 from 1)

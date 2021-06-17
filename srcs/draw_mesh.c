@@ -91,19 +91,23 @@ t_point    project(t_point p, t_fdf *f)
 	p.z *= f->c->scale / 4;
 	p.x -= f->m->width * f->c->scale / 2;
 	p.y -= f->m->height *f->c->scale / 2;
-	// p.x += (f->m->width * f->c->scale)/2.5;
-	// p.y += (f->m->height * f->c->scale)/2.5;
 
     return (p);
 }
 void    build_ridge(t_vert one, t_vert two, t_fdf *f)
 {
     t_vert v[2];
-
+	
 	v[0] = one;
-	v[1] = two;
+	v[1] = two;	
     v[0].p = project(one.p, f);
     v[1].p = project(two.p, f);
+	rotate_x(&v[0], f->c);
+	rotate_y(&v[0], f->c);
+	rotate_z(&v[0], f->c);
+	rotate_x(&v[1], f->c);
+	rotate_y(&v[1], f->c);
+	rotate_z(&v[1], f->c);
 	iso(&v[0].p);
 	iso(&v[1].p);
 	v[0].p.x+= f->width/2;
@@ -111,12 +115,6 @@ void    build_ridge(t_vert one, t_vert two, t_fdf *f)
 	v[1].p.x+= f->width/2;
 	v[1].p.y+= (f->height +f->m->height * f->c->scale) / 2.5;
 
-	rotate_x(&v[0], f->c);
-	rotate_y(&v[0], f->c);
-	rotate_z(&v[0], f->c);
-	rotate_x(&v[1], f->c);
-	rotate_y(&v[1], f->c);
-	rotate_z(&v[1], f->c);
     draw_line(v[0], v[1], f);
 }
 
