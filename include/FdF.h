@@ -81,7 +81,7 @@ typedef	struct	s_fdf
 # define COL_NIN 15378155
 # define COL_TEN 16300022
 
-
+int	parse_file(t_fdf *f);
 int	get_next_line(int fd, char **line);
 float max(float val1, float val2);
 float min(float val1, float val2);

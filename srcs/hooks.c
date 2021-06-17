@@ -2,9 +2,10 @@
 
 int	keyrelease(int keycode, void *param)
 {
-	t_fdf	*f;
+	//t_fdf	*f;
 
-	f = (t_fdf*)param;
+	//f = (t_fdf*)param;
+	(void)param;
 	return (keycode);
 }
 

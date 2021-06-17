@@ -25,7 +25,8 @@ SOURCES =  srcs/FdF.c \
 			srcs/gradient.c \
 			srcs/hooks.c \
 			srcs/loop.c \
-			srcs/exit.c
+			srcs/exit.c \
+			srcs/parser.c
 
 OBJS	= ${SOURCES:.c=.o}
 
