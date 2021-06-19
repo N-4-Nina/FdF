@@ -2,15 +2,11 @@
 
 int	scale_up(int x, int y, t_fdf *f)
 {
-	t_point	val;
-
+	(void)x;
+	(void)y;
 	if (f->c->scale <= INT_MAX)
 	{
 		f->c->scale += 1;
-		val.x = (x - f->width / 2) / 50;
-		val.y = (y - f->height / 2) / 50;
-		f->c->offset.x -= val.x;
-		f->c->offset.y -= val.y;
 	}
 	return (1);
 }

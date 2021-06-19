@@ -91,6 +91,7 @@ float	min(float val1, float val2);
 int		hextoint(char *s);
 void	free_split(char **split);
 int		check_extension(char *s);
+void	check_rectangle(char **split, t_fdf *f);
 
 int		draw_mesh(t_fdf *f);
 t_point	project(t_point p, t_fdf *f);

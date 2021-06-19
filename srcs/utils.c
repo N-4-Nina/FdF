@@ -10,6 +10,19 @@ void	free_split(char **split)
 	free(split);
 }
 
+void	check_rectangle(char **split, t_fdf *f)
+{
+	int	i;
+
+	i = 0;
+	while (split[i])
+		i++;
+	if (i != f->m->width)
+		write(1, "\033[31m Warning: Map is not a Rectangle, \
+some lines might be missing and visual behaviour \
+might not make sense.\n \033[0;37m", 119);
+}
+
 int	hextoint(char *s)
 {
 	int	dec;

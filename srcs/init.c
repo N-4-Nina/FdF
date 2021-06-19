@@ -78,7 +78,7 @@ argument with .fdf extension.\n", 60);
 	f->m->bottom = 0;
 	f->mousedown = 0;
 	write(1, "\033[5m", 5);
-	write(1, "Parsing...", 11);
+	write(1, "Parsing...\n", 12);
 	write(1, "\033[25m", 6);
 	if (parse_file(f) < 0)
 	{

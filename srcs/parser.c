@@ -38,9 +38,13 @@ int	parse_line(char *line, t_fdf *f)
 	i = 0;
 	split = ft_split(line, 32);
 	if (!lineNb)
+	{
 		if (alloc_vertices(split, f))
 			return (0);
-	while (split[i])
+	}
+	else
+		check_rectangle(split, f);
+	while (i < f->m->width && split[i])
 	{
 		z = ft_atoi(split[i]);
 		set_extremes(z, f);
@@ -78,8 +82,10 @@ int	parse_file(t_fdf *f)
 {
 	char	*line;
 	int		fd;
+	int		i;
 
 	line = NULL;
+	i = 1;
 	fd = open(f->filename, O_RDONLY);
 	if (fd < 0)
 		return (-1);
@@ -89,6 +95,10 @@ int	parse_file(t_fdf *f)
 		if (!parse_line(line, f))
 			return (abort_parse(line, fd, f));
 		free(line);
+		write(1, "parsed line ", 12);
+		ft_putnbr_fd(i, 1);
+		write(1, ".\n", 2);
+		i++;
 	}
 	free(line);
 	return (0);
