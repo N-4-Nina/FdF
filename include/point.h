@@ -13,7 +13,14 @@
 #ifndef POINT_H
 # define POINT_H
 
-typedef	struct	s_point
+typedef struct s_dpoint
+{
+	double	x;
+	double	y;
+	double	z;
+}				t_dpoint;
+
+typedef struct s_point
 {
 	int	x;
 	int	y;

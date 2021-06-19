@@ -22,11 +22,15 @@ GNLBUFF = -D BUFFER_SIZE=100
 SOURCES =  srcs/FdF.c \
 			srcs/utils.c \
 			srcs/draw_mesh.c \
-			srcs/gradient.c \
+			srcs/colors.c \
 			srcs/hooks.c \
 			srcs/loop.c \
 			srcs/exit.c \
-			srcs/parser.c
+			srcs/parser.c \
+			srcs/init.c \
+			srcs/commands.c \
+			srcs/rotate.c \
+			srcs/project.c
 
 OBJS	= ${SOURCES:.c=.o}
 
@@ -45,14 +49,10 @@ endif
 
 all : $(NAME)
 
-${NAME}: ${OBJS} ft mlx
-		${CC} ${CFLAGS} ${INCLUDES} ${OBJS} ${LIBS} -o ${NAME}
-
-mlx:
-	@make -C $(MLX_DIR)
-
-ft:
+${NAME}: ${OBJS}
 	@make -C libft
+	@make -C ${MLX_DIR}
+	${CC} ${CFLAGS} ${INCLUDES} ${OBJS} ${LIBS} -o ${NAME}
 
 $(DIR_O)/%.o: $(DIR_S)/%.c $(HEADER)/*.h
 	@mkdir -p objs
@@ -60,12 +60,10 @@ $(DIR_O)/%.o: $(DIR_S)/%.c $(HEADER)/*.h
 clean :
 	@rm -f $(OBJS)
 	@make clean -C $(LIBFT)
-	@make clean -C $(MLX_DIR)
 
 fclean: clean
 	@rm -f $(NAME)
 	@make fclean -C $(LIBFT)
-	@make clean -C $(MLX_DIR)
 
 re: fclean all
 

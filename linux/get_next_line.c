@@ -14,7 +14,7 @@
 
 int	check_new_line(char *s)
 {
-	int i;
+	int	i;
 
 	if (!s)
 		return (-1);
@@ -33,7 +33,8 @@ int	gnl_read(int fd, int check, int ret, char *still[FOPEN_MAX])
 	char	*buffer;
 	char	*temp;
 
-	if (!(buffer = malloc(BUFFER_SIZE + 1)) || read(fd, buffer, 0) == -1)
+	buffer = malloc(BUFFER_SIZE + 1);
+	if (!buffer || read(fd, buffer, 0) == -1)
 		return (-1);
 	while (check == -1 && ret > 0)
 	{
@@ -84,7 +85,7 @@ int	gnl_write(int fd, char **line, char *still[FOPEN_MAX])
 
 int	get_next_line(int fd, char **line)
 {
-	static	char	*still[FOPEN_MAX];
+	static char		*still[FOPEN_MAX];
 	int				i;
 	int				ret;
 	int				check;
@@ -92,7 +93,9 @@ int	get_next_line(int fd, char **line)
 	i = 0;
 	if (!line || fd < 0 || BUFFER_SIZE < 1)
 		return (-1);
-	check = (still[fd]) ? check_new_line(still[fd]) : -1;
+	check = -1;
+	if (still[fd])
+		check_new_line(still[fd]);
 	if (gnl_read(fd, check, 1, still) == -1)
 		return (-1);
 	if (still[fd] && still[fd][0])

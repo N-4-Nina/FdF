@@ -13,59 +13,37 @@
 #include "../include/FdF.h"
 #include <stdio.h>
 
-
-int	init(int argc, char **argv, t_fdf *f)
-{
-	if (argc != 2)
-		return (-1);
-	f->mlx = mlx_init();
-	mlx_get_screen_size(f->mlx, &f->width, &f->height);
-	f->win = mlx_new_window(f->mlx, f->width, f->height, "FdF");
-	f->filename = argv[1];
-	f->run = 1;
-	f->c->rot[0] = 0;
-	f->c->rot[1] = 0;
-	f->c->rot[2] = 0;
-	f->m->top = 0;
-	f->m->bottom = 0;
-	if (parse_file(f)< 0)
-		return (-1);
-	f->m->size = f->m->width * f->m->height;
-	f->c->scale = min(f->width / f->m->width / 2, f->height/ f->m->height /2);
-	return (0);
-}
-
 int	alloc(t_fdf *f)
 {
+	f->c = NULL;
+	f->m = NULL;
+	f->mlx = NULL;
+	f->win = NULL;
 	f->c = malloc(sizeof(t_cam));
+	if (!f->c)
+		return (-1);
 	f->m = malloc(sizeof(t_mesh));
+	if (!f->m)
+	{
+		free(f->c);
+		return (-1);
+	}
 	return (0);
 }
-
-void print_vert(t_fdf fdf)
-{
-	int i = 0;
-	while (i < fdf.m->height*fdf.m->width)
-	{
-		printf("%d %d %d \n", fdf.m->vert[i].p.x, fdf.m->vert[i].p.y, fdf.m->vert[i].p.z);
-		i++;
-	}
-}
-
 
 int	main(int argc, char **argv)
 {
 	t_fdf	fdf;
-	
-	alloc(&fdf);
+
+	if (alloc(&fdf) < -1)
+		return (-1);
 	if (init(argc, argv, &fdf))
 		return (-1);
-	
-
 	mlx_hook(fdf.win, 33, (1 << 8), free_and_exit, &fdf);
-
 	mlx_loop_hook(fdf.mlx, loop_hook, &fdf);
 	mlx_hook(fdf.win, 02, (1L << 0), keypress, &fdf);
-	mlx_hook(fdf.win, 03, (1L << 1), keyrelease, &fdf);
+	mlx_hook(fdf.win, 04, (1L << 2), mousepress, &fdf);
+	mlx_hook(fdf.win, 06, (1L << 6), mousemotion, &fdf);
+	mlx_hook(fdf.win, 05, (1L << 3), mouserelease, &fdf);
 	mlx_loop(fdf.mlx);
 }

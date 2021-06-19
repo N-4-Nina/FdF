@@ -1,0 +1,15 @@
+#ifndef GRADIENT_H
+# define GRADIENT_H
+
+# define COL_ONE 7348635
+# define COL_TWO 8401572
+# define COL_THR 9454510
+# define COL_FOU 10507192
+# define COL_FIV 11494337
+# define COL_SIX 12481739
+# define COL_SEV 13468886
+# define COL_EIG 14456288
+# define COL_NIN 15378155
+# define COL_TEN 16300022
+
+#endif
