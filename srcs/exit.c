@@ -1,5 +1,13 @@
 #include "../include/FdF.h"
 
+void	empty_map(t_fdf *f)
+{
+	write(1, ".fdf file cannot be empty ! \n", 30);
+	free(f->m);
+	free(f->c);
+	exit(-1);
+}
+
 int	abort_parse(char *line, int fd, t_fdf *f)
 {
 	int	i;

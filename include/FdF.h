@@ -120,6 +120,7 @@ int		right_arrow(t_fdf *f);
 int		loop_hook(void *param);
 void	update(t_fdf *f);
 int		abort_parse(char *line, int fd, t_fdf *f);
+void	empty_map(t_fdf *f);
 int		free_and_exit(t_fdf *f);
 
 #endif

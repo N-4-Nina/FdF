@@ -61,20 +61,25 @@ int	get_height(t_fdf *f)
 {
 	int		height;
 	int		fd;
+	int		empty;
 	char	*line;
 
 	height = 0;
+	empty = 1;
 	line = NULL;
 	fd = open(f->filename, O_RDONLY);
 	if (fd < 0)
 		return (-1);
 	while (get_next_line(fd, &line))
 	{
+		empty = 0;
 		height++;
 		free(line);
 	}
 	free(line);
 	close(fd);
+	if (empty)
+		empty_map(f);
 	return (height);
 }
 
